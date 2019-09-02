@@ -1,0 +1,129 @@
+{
+  "duration": 13,
+  "fps": 23.85464466249088,
+  "width": 1036,
+  "height": 770,
+  "timeline": {
+    "0.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[0.1, 2.4]],
+      "frameid": [[1, 24]]
+    },
+    "1.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[2.3, 3.1]],
+      "frameid": [[23, 31]]
+    },
+    "2.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[3.1, 5.1]],
+      "frameid": [[31, 51]]
+    },
+    "3.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[4.3, 5.7]],
+      "frameid": [[43, 57]]
+    },
+    "4.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[4.5, 5.7]],
+      "frameid": [[45, 57]]
+    },
+    "5.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[5.6, 6.2]],
+      "frameid": [[56, 62]]
+    },
+    "6.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[5.9, 6.5]],
+      "frameid": [[59, 65]]
+    },
+    "7.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[6.3, 7.0]],
+      "frameid": [[63, 70]]
+    },
+    "8.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[6.2, 6.9]],
+      "frameid": [[68, 82]]
+    },
+    "9.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[7.8, 10.2]],
+      "frameid": [[78, 102]]
+    },
+    "10.jpg": {
+      "type": "face",
+      "matches": [
+        {
+          "accuracy": "90%",
+          "galleryImage": "/a/b/c.jpg"
+        }
+      ],
+      "timeregions": [[9.6, 12.3]],
+      "frameid": [[96, 123]]
+    }
+  }
+}
