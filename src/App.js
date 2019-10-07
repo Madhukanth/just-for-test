@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Timeline from './components/Timeline';
-import './App.css';
+import Routes from './Routes';
 
 function App() {
-  return <Timeline />;
+  return <Routes />;
 }
 
 export default App;
