@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ReactSlider from "react-slider";
 import _ from "lodash";
-import { v4 as uuidv4 } from "uuid";
+import uuidv4 from "uuid/v4";
 
 const AddButton = styled.button`
   background: transparent;
@@ -40,7 +40,7 @@ const StyledTrack = styled.div`
   background: ${props => (props.index % 2 === 1 ? "#dc8efb" : "transparent")};
 `;
 
-const Track = props => {
+const SelectionTrack = props => {
   const [isMouseIn, setMouseIn] = useState(false);
   const start = props.value[props.index - 1];
   const end = props.value[props.index];
@@ -55,7 +55,33 @@ const Track = props => {
       {props.index % 2 === 1 && (
         <React.Fragment>
           {!isMouseIn && <p style={{ margin: 0 }}>{start + " - " + end}</p>}
-          {props.handleDelete && isMouseIn && (
+          {props.handleAdd && isMouseIn && (
+            <button onClick={() => props.handleAdd()}>Add</button>
+          )}
+        </React.Fragment>
+      )}
+    </StyledTrack>
+  );
+};
+
+const Track = props => {
+  const [isMouseIn, setMouseIn] = useState(false);
+  const start = props.value[props.index - 1];
+  const end = props.value[props.index];
+
+  return (
+    <StyledTrack
+      {...props}
+      index={props.index}
+      onMouseEnter={() => setMouseIn(true)}
+      onMouseLeave={() => setMouseIn(false)}
+    >
+      {props.index % 2 === 1 && (
+        <React.Fragment>
+          {!isMouseIn && !props.disabled && (
+            <p style={{ margin: 0 }}>{start + " - " + end}</p>
+          )}
+          {!props.disabled && props.handleDelete && isMouseIn && (
             <button onClick={() => props.handleDelete(start, end)}>
               Delete
             </button>
@@ -66,32 +92,6 @@ const Track = props => {
   );
 };
 
-// const RenderRegions = ({ regions, handleDelete }) => {
-//   const formattedRegions = [];
-//   let i = 0;
-//   while (i < regions.length) {
-//     formattedRegions.push([regions[i], regions[i + 1]]);
-//     i = i + 2;
-//   }
-
-//   return formattedRegions.map((r, i) => (
-//     <div
-//       style={{
-//         display: "flex",
-//         justifyContent: "space-between",
-//         alignItems: "center",
-//         borderBottom: "1px solid #bfbbbb"
-//       }}
-//       key={r[0]}
-//     >
-//       <p>
-//         {i + 1}) Start: {r[0]} End: {r[1]}
-//       </p>
-//       <button onClick={() => handleDelete(r[0], r[1])}>Delete</button>
-//     </div>
-//   ));
-// };
-
 const StyledSlider = styled(ReactSlider)`
   width: 500px;
   height: 40px;
@@ -100,14 +100,13 @@ const StyledSlider = styled(ReactSlider)`
   border-radius: 2px;
   position: absolute !important;
   opacity: ${props => (props.disabled ? 0.3 : 1)};
+  pointer-events: ${props => (props.disabled ? "none" : "auto")};
 `;
 
 function RcSlider(props) {
-  const [regions, setRegions] = useState([20, 50]);
+  const [regions, setRegions] = useState([]);
   const [addedRegions, setAddRegions] = useState([0, 10]);
   const [showModal, setModal] = useState(false);
-  // const [start, setStart] = useState(0);
-  // const [end, setEnd] = useState(10);
 
   function handleDelete(start, end) {
     const newRegions = regions.filter(r => r !== start && r !== end);
@@ -162,13 +161,23 @@ function RcSlider(props) {
       {showModal && (
         <StyledSlider
           pearling
+          snapDragDisabled
           min={0}
           max={100}
           step={0.1}
           minDistance={0.1}
           value={addedRegions}
           renderTrack={(props, state) => (
-            <Track key={uuidv4()} {...props} {...state} />
+            <SelectionTrack
+              {...props}
+              key={uuidv4()}
+              value={state.value}
+              index={state.index}
+              handleAdd={() => {
+                handleAdd();
+                setModal(false);
+              }}
+            />
           )}
           renderThumb={Thumb}
           onChange={val => {
@@ -180,19 +189,20 @@ function RcSlider(props) {
       {regions.length > 1 && (
         <StyledSlider
           pearling
+          snapDragDisabled
           min={0}
           max={100}
           step={0.1}
           minDistance={0.1}
           value={regions}
           disabled={showModal}
-          snapDragDisabled
           renderTrack={(props, state) => (
             <Track
               {...props}
               key={uuidv4()}
               value={state.value}
               index={state.index}
+              disabled={showModal}
               handleDelete={handleDelete}
             />
           )}
@@ -206,9 +216,7 @@ function RcSlider(props) {
       <AddButton
         showModal={showModal}
         onClick={() => {
-          if (showModal) {
-            handleAdd();
-          }
+          setAddRegions([0, 10]);
           setModal(status => !status);
         }}
       >
@@ -228,77 +236,6 @@ function RcSlider(props) {
           />
         </svg>
       </AddButton>
-
-      {/* {false && showModal && (
-        <div
-          style={{
-            width: "250px",
-            height: "200px",
-            overflowY: "scroll",
-            boxShadow: "1px 2px 10px 4px #e6e4e4",
-            borderRadius: "5px",
-            textAlign: "center",
-            padding: "10px",
-            position: "absolute",
-            left: "600px"
-          }}
-        >
-          <RenderRegions regions={regions} handleDelete={handleDelete} />
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              padding: "10px"
-            }}
-          >
-            <div>
-              <label>Start</label>
-              <input
-                type="Number"
-                style={{
-                  width: "40px",
-                  height: "20px",
-                  margin: "0 7px",
-                  borderRadius: "4px",
-                  border: "1px solid #bfbbbb"
-                }}
-                value={start}
-                min={0}
-                max={99.9}
-                step={0.1}
-                onChange={e => setStart(Number(e.target.value))}
-              />
-            </div>
-
-            <div>
-              <label>End</label>
-              <input
-                type="Number"
-                style={{
-                  width: "40px",
-                  height: "20px",
-                  margin: "0 7px",
-                  borderRadius: "4px",
-                  border: "1px solid #bfbbbb"
-                }}
-                value={end}
-                min={0.1}
-                max={100}
-                step={0.1}
-                onChange={e => setEnd(Number(e.target.value))}
-              />
-            </div>
-
-            <button
-              style={{ background: "transparent", borderRadius: "4px" }}
-              onClick={handleAdd}
-            >
-              Add
-            </button>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 }
