@@ -207,7 +207,7 @@ VideoProperties.defaultProps = {
   resolution: "1280x720",
   duration: "04:33:0",
   volume: 30,
-  opacity: 20,
+  opacity: 60,
   setColor: () => {},
   setVideoFit: () => {},
   setResolution: () => {},

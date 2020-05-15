@@ -136,6 +136,8 @@ const Color = styled.button`
   background: ${(props) => props.background};
   border: ${(props) => props.border};
   cursor: pointer;
+  box-shadow: ${(props) =>
+    props.selected ? `${props.background} 0 0 5px` : "none"};
 
   :hover {
     box-shadow: ${(props) => `${props.background} 0 0 5px`};
@@ -180,11 +182,12 @@ function ToolbarColorPicker(props) {
             return (
               <Color
                 key={color}
+                width={width}
                 border={border}
                 height={height}
-                width={width}
                 background={color}
                 onClick={props.setColor}
+                selected={props.selectedColor === color}
               ></Color>
             );
           })}
@@ -204,7 +207,7 @@ function ToolbarColorPicker(props) {
         <div className="color-hex">
           <div className="selected">
             <div className="selected-color"></div>
-            <input value={props.selectedColor} />
+            <input value={props.selectedColor} onChange={props.setColor} />
           </div>
           <p className="light-text">Hex</p>
         </div>
