@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import ToolIcon from "./ToolIcon";
+import ToolIcon from "../common/ToolIcon";
 import IC_Video from "./icons/ic_video.png";
 import IC_Video_Blue from "./icons/ic_video-blue.png";
 import IC_Color_Correction from "./icons/ic_color_correction.png";
@@ -21,7 +21,7 @@ import IC_Speed from "./icons/ic_speed.png";
 import IC_Speed_Blue from "./icons/ic_speed-blue.png";
 
 const StyledToolbar = styled.div`
-  height: 957px;
+  height: 870px;
   width: 60px;
   opacity: 0.9;
   background-color: #003da2;

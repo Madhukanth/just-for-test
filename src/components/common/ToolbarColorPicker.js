@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import ReactTooltip from "react-tooltip";
 
@@ -155,7 +156,7 @@ function ToolbarColorPicker(props) {
       type="light"
       effect="solid"
       place="bottom"
-      id="custom-event"
+      id={props.tooltipID}
       data-event-off="click"
     >
       <StyledColorPicker selectedColor={props.selectedColor}>
@@ -217,3 +218,19 @@ function ToolbarColorPicker(props) {
 }
 
 export default ToolbarColorPicker;
+
+ToolbarColorPicker.propTypes = {
+  selectedColor: PropTypes.string,
+  setColor: PropTypes.func,
+  opacity: PropTypes.number,
+  setOpacity: PropTypes.func,
+  tooltipID: PropTypes.string,
+};
+
+ToolbarColorPicker.defaultProps = {
+  tooltipID: "video-tooltip",
+  selectedColor: "#4cd965",
+  setColor: () => {},
+  opacity: 60,
+  setOpacity: () => {},
+};

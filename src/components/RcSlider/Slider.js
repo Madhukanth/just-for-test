@@ -4,7 +4,7 @@ import ReactSlider from "react-slider";
 import _ from "lodash";
 import uuidv4 from "uuid/v4";
 
-import DeleteIcon from "./rubbish.png";
+// import DeleteIcon from "./rubbish.png";
 
 // const CustomButton = styled.button`
 //   border: 0;
@@ -97,9 +97,9 @@ const SelectionTrack = (props) => {
 };
 
 const Track = (props) => {
-  const [isMouseIn, setMouseIn] = useState(false);
-  const start = props.value[props.index - 1];
-  const end = props.value[props.index];
+  // const [isMouseIn, setMouseIn] = useState(false);
+  // const start = props.value[props.index - 1];
+  // const end = props.value[props.index];
 
   return (
     <StyledTrack
@@ -113,7 +113,7 @@ const Track = (props) => {
           {/* {!props.disabled && (
             <p style={{ margin: "0 auto" }}>{start + " - " + end}</p>
           )} */}
-          {!props.disabled && props.handleDelete && isMouseIn && (
+          {/* {!props.disabled && props.handleDelete && isMouseIn && (
             <Button onClick={() => props.handleDelete(start, end)}>
               <img
                 style={{ height: "20px", width: "20px" }}
@@ -121,7 +121,7 @@ const Track = (props) => {
                 alt=""
               />
             </Button>
-          )}
+          )} */}
         </React.Fragment>
       )}
     </StyledTrack>
