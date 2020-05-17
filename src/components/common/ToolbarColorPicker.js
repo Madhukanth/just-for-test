@@ -32,6 +32,44 @@ const colors = [
   "#FFFD54",
 ];
 
+const StyledWrapper = styled.div`
+  .__react_component_tooltip {
+    position: absolute;
+    top: 43px !important;
+    left: 57px !important;
+    width: 235px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px 0px rgba(0, 61, 162, 0.2);
+    padding: 10px;
+    text-transform: capitalize;
+    opacity: 1;
+
+    ::after {
+      content: "";
+      left: 87% !important;
+      border-left: 15px solid white !important;
+      border-right: 11px solid white !important;
+      top: -12px !important;
+      margin-left: -8px !important;
+      border-bottom-color: #ffffff;
+      border-bottom-style: solid;
+      border-bottom-width: 25px !important;
+      box-shadow: 1.3px 1.3px 3px -1px rgba(0, 61, 162, 0.1);
+      border-radius: 3px;
+      transform: rotate(-136deg) !important;
+    }
+  }
+`;
+
+const ColorSelector = styled.div`
+  height: 34px;
+  width: 34px;
+  border-radius: 2px;
+  background-color: ${(props) => props.selectedColor};
+  cursor: pointer;
+`;
+
 const StyledColorPicker = styled.div`
   .color-navigation {
     display: flex;
@@ -151,69 +189,78 @@ const Color = styled.button`
 
 function ToolbarColorPicker(props) {
   return (
-    <ReactTooltip
-      clickable
-      type="light"
-      effect="solid"
-      place="bottom"
-      id={props.tooltipID}
-      data-event-off="click"
-    >
-      <StyledColorPicker selectedColor={props.selectedColor}>
-        <div className="color-navigation">
-          <p className="blue-text">Color Picker (All)</p>
-          <p>Palettes Size</p>
-        </div>
-        <div className="color-options">
-          {colors.map((color) => {
-            let border = "none";
-            let height = "34px";
-            let width = "34px";
-
-            if (
-              color === "#FFFFFF" ||
-              color === "#ffffff" ||
-              color === "white"
-            ) {
-              border = "1px solid #979797";
-              height = "33px";
-              width = "33px";
-            }
-
-            return (
-              <Color
-                key={color}
-                width={width}
-                border={border}
-                height={height}
-                background={color}
-                onClick={props.setColor}
-                selected={props.selectedColor === color}
-              ></Color>
-            );
-          })}
-        </div>
-        <div className="opacity">
-          <div className="opacity-text">
-            <p>Opacity</p>
-            <p className="value">{props.opacity}%</p>
+    <StyledWrapper>
+      <ColorSelector
+        data-for={props.tooltipID}
+        data-tip="color picker"
+        data-event="click"
+        selectedColor={props.selectedColor}
+      />
+      <ReactTooltip
+        clickable
+        type="light"
+        effect="solid"
+        place="bottom"
+        id={props.tooltipID}
+        data-event-off="click"
+        className="color-tooltip"
+      >
+        <StyledColorPicker selectedColor={props.selectedColor}>
+          <div className="color-navigation">
+            <p className="blue-text">Color Picker (All)</p>
+            <p>Palettes Size</p>
           </div>
-          <ToolbarRange
-            value={props.opacity}
-            onChange={props.setOpacity}
-            height="8px"
-            width="230px"
-          />
-        </div>
-        <div className="color-hex">
-          <div className="selected">
-            <div className="selected-color"></div>
-            <input value={props.selectedColor} onChange={props.setColor} />
+          <div className="color-options">
+            {colors.map((color) => {
+              let border = "none";
+              let height = "34px";
+              let width = "34px";
+
+              if (
+                color === "#FFFFFF" ||
+                color === "#ffffff" ||
+                color === "white"
+              ) {
+                border = "1px solid #979797";
+                height = "33px";
+                width = "33px";
+              }
+
+              return (
+                <Color
+                  key={color}
+                  width={width}
+                  border={border}
+                  height={height}
+                  background={color}
+                  onClick={props.setColor}
+                  selected={props.selectedColor === color}
+                ></Color>
+              );
+            })}
           </div>
-          <p className="light-text">Hex</p>
-        </div>
-      </StyledColorPicker>
-    </ReactTooltip>
+          <div className="opacity">
+            <div className="opacity-text">
+              <p>Opacity</p>
+              <p className="value">{props.opacity}%</p>
+            </div>
+            <ToolbarRange
+              value={props.opacity}
+              onChange={props.setOpacity}
+              height="8px"
+              width="230px"
+            />
+          </div>
+          <div className="color-hex">
+            <div className="selected">
+              <div className="selected-color"></div>
+              <input value={props.selectedColor} onChange={props.setColor} />
+            </div>
+            <p className="light-text">Hex</p>
+          </div>
+        </StyledColorPicker>
+      </ReactTooltip>
+    </StyledWrapper>
   );
 }
 

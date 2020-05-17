@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import EditorTools from "./EditorTools";
+import SliderText from "../common/SliderText";
 import AnchorText from "../common/AnchorText";
 import SubProperty from "../common/SubProperty";
 import ToolbarRange from "../common/ToolbarRange";
@@ -30,9 +31,9 @@ const StyledWrapper = styled.div`
   }
 `;
 
-function AdjustProperty(props) {
+function ContrastProperty(props) {
   return (
-    <EditorTools>
+    <EditorTools selected="contrast">
       <StyledWrapper>
         <div className="header-container">
           <ToolsHeaderText>Adjust</ToolsHeaderText>
@@ -41,10 +42,10 @@ function AdjustProperty(props) {
           </AnchorText>
         </div>
         <SubProperty style={{ flexDirection: "column" }}>
-          <div className="text-container">
+          <SliderText>
             <p>Brightness</p>
             <p>{props.brightness}</p>
-          </div>
+          </SliderText>
           <ToolbarRange
             value={props.brightness}
             onChange={props.setBrightness}
@@ -52,18 +53,18 @@ function AdjustProperty(props) {
         </SubProperty>
         <ToolbarPropDivider />
         <SubProperty style={{ flexDirection: "column" }}>
-          <div className="text-container">
+          <SliderText>
             <p>Contrast</p>
             <p>{props.contrast}</p>
-          </div>
+          </SliderText>
           <ToolbarRange value={props.contrast} onChange={props.setContrast} />
         </SubProperty>
         <ToolbarPropDivider />
         <SubProperty style={{ flexDirection: "column" }}>
-          <div className="text-container">
+          <SliderText>
             <p>Saturation</p>
             <p>{props.saturation}</p>
-          </div>
+          </SliderText>
           <ToolbarRange
             value={props.saturation}
             onChange={props.setSaturation}
@@ -71,10 +72,10 @@ function AdjustProperty(props) {
         </SubProperty>
         <ToolbarPropDivider />
         <SubProperty style={{ flexDirection: "column" }}>
-          <div className="text-container">
+          <SliderText>
             <p>Exposure</p>
             <p>{props.exposure}</p>
-          </div>
+          </SliderText>
           <ToolbarRange value={props.exposure} onChange={props.setExposure} />
         </SubProperty>
       </StyledWrapper>
@@ -82,9 +83,9 @@ function AdjustProperty(props) {
   );
 }
 
-export default AdjustProperty;
+export default ContrastProperty;
 
-AdjustProperty.propTypes = {
+ContrastProperty.propTypes = {
   brightness: PropTypes.number,
   contrast: PropTypes.number,
   saturation: PropTypes.number,
@@ -95,7 +96,7 @@ AdjustProperty.propTypes = {
   setExposure: PropTypes.func,
 };
 
-AdjustProperty.defaultProps = {
+ContrastProperty.defaultProps = {
   brightness: 1,
   contrast: 1,
   saturation: 1,

@@ -76,7 +76,7 @@ function EditorTools(props) {
         </div>
       </div>
 
-      <Toolbar />
+      <Toolbar selected={props.selected} />
     </StyledWrapper>
   );
 }

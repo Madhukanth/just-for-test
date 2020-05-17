@@ -10,8 +10,8 @@ const StyledRange = styled.input`
   background: ${(props) => `linear-gradient(
     to right,
     #00BFFF 0%,
-    #00BFFF ${props.value * (100 / props.max)}%,
-    rgba(20, 41, 69, 0.05) ${props.value * (100 / props.max)}%,
+    #00BFFF ${props.percent}%,
+    rgba(20, 41, 69, 0.05) ${props.percent}%,
     rgba(20, 41, 69, 0.05) 100%
   )`};
 
@@ -47,7 +47,14 @@ const StyledRange = styled.input`
 `;
 
 function ToolbarRange(props) {
-  return <StyledRange {...props} type="range" />;
+  let dividend = props.value - props.step;
+  dividend = dividend > 0 ? dividend : 0;
+
+  let divider = props.max - props.min;
+  divider = divider > 0 ? divider : 1;
+
+  const percent = Number(((dividend / divider) * 100).toFixed(2));
+  return <StyledRange {...props} percent={percent} type="range" />;
 }
 
 export default ToolbarRange;

@@ -6,8 +6,10 @@ import Video from "./components/Video";
 import ResizeBox from "./components/ResizeBox";
 import Layer from "./components/RcSlider/Layer";
 import FfmpegWeb from "./components/FfmpegWeb";
-import ProjectProperty from "./components/EditorTools/ProjectProperty";
-import AdjustProperty from "./components/EditorTools/AdjustProperty";
+import VideoProperty from "./components/EditorTools/VideoProperty";
+import ContrastProperty from "./components/EditorTools/ContrastProperty";
+import SpeedProperty from "./components/EditorTools/SpeedProperty";
+import TextProperty from "./components/EditorTools/TextProperty";
 
 const Routes = () => (
   <BrowserRouter>
@@ -17,8 +19,10 @@ const Routes = () => (
       <Route path="/resize" component={ResizeBox} exact />
       <Route path="/slider" component={Layer} exact />
       <Route path="/ffmpeg" component={FfmpegWeb} exact />
-      <Route path="/tools/project" component={ProjectProperty} exact />
-      <Route path="/tools/adjust" component={AdjustProperty} exact />
+      <Route path="/tools/video" component={VideoProperty} exact />
+      <Route path="/tools/contrast" component={ContrastProperty} exact />
+      <Route path="/tools/speed" component={SpeedProperty} exact />
+      <Route path="/tools/text" component={TextProperty} exact />
     </Switch>
   </BrowserRouter>
 );

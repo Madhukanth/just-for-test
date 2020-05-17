@@ -13,6 +13,7 @@ const StyledButton = styled.button`
   margin: ${(props) => props.margin};
   text-transform: ${(props) => props.textTransform};
   background-color: ${(props) => props.background};
+  background: ${(props) => props.background};
   box-shadow: ${(props) => props.boxShadow};
   color: ${(props) => props.color};
   font-size: ${(props) => props.fontSize};
