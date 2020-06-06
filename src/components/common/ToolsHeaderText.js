@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
+import { colors } from "../themes/base";
+
 const ToolsHeaderText = styled.p`
   opacity: 0.5;
-  color: #142945;
+  color: ${colors.secondary};
   font-family: Muli;
   font-size: 12px;
   font-weight: 800;

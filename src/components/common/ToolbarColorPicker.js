@@ -3,34 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import ReactTooltip from "react-tooltip";
 
+import { colors } from "../themes/base";
 import ToolbarRange from "./ToolbarRange";
-
-const colors = [
-  "#000000",
-  "#FFFFFF",
-  "#A766FA",
-  "#5269DA",
-  "#147DE8",
-  "#24CFCF",
-  "#EAF1FA",
-  "#4cd965",
-  "#FECC2F",
-  "#FD9028",
-  "#FF026B",
-  "#D8D8D8",
-  "#243F43",
-  "#EA7A76",
-  "#369BA5",
-  "#F65D95",
-  "#FF1716",
-  "#62BCF9",
-  "#FDE371",
-  "#7FE7C2",
-  "#F088E6",
-  "#FF4149",
-  "#1502F8",
-  "#FFFD54",
-];
 
 const StyledWrapper = styled.div`
   .__react_component_tooltip {
@@ -39,8 +13,8 @@ const StyledWrapper = styled.div`
     left: 57px !important;
     width: 235px;
     border-radius: 5px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 6px 0px rgba(0, 61, 162, 0.2);
+    background-color: ${colors.white};
+    box-shadow: 0 2px 6px 0px ${colors.palette_tools.s_light};
     padding: 10px;
     text-transform: capitalize;
     opacity: 1;
@@ -48,14 +22,14 @@ const StyledWrapper = styled.div`
     ::after {
       content: "";
       left: 87% !important;
-      border-left: 15px solid white !important;
-      border-right: 11px solid white !important;
+      border-left: 15px solid ${colors.white} !important;
+      border-right: 11px solid ${colors.white} !important;
       top: -12px !important;
       margin-left: -8px !important;
-      border-bottom-color: #ffffff;
+      border-bottom-color: ${colors.white};
       border-bottom-style: solid;
       border-bottom-width: 25px !important;
-      box-shadow: 1.3px 1.3px 3px -1px rgba(0, 61, 162, 0.1);
+      box-shadow: 1.3px 1.3px 3px -1px ${colors.palette_tools.s_verylight};
       border-radius: 3px;
       transform: rotate(-136deg) !important;
     }
@@ -75,11 +49,11 @@ const StyledColorPicker = styled.div`
     display: flex;
 
     .blue-text {
-      color: #00c1ff !important;
+      color: ${colors.palette_tools.font} !important;
     }
 
     p {
-      color: #142945;
+      color: ${colors.secondary};
       font-family: Muli;
       font-size: 12px;
       font-weight: 600;
@@ -101,7 +75,7 @@ const StyledColorPicker = styled.div`
     .opacity-text {
       line-height: 0px;
       display: flex;
-      color: #142945;
+      color: ${colors.secondary};
       font-family: Muli;
       font-size: 13px;
       font-weight: 400;
@@ -118,14 +92,14 @@ const StyledColorPicker = styled.div`
     box-sizing: border-box;
     height: 34px;
     width: 230px;
-    border: 1px solid rgba(20, 41, 69, 0.1);
+    border: 1px solid ${colors.s_extralight};
     border-radius: 2px;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 8px 0 5px;
-    color: #142945;
+    color: ${colors.secondary};
     font-family: Muli;
     font-size: 12px;
     font-weight: 400;
@@ -144,7 +118,7 @@ const StyledColorPicker = styled.div`
         border: 0;
         height: 20px;
         max-width: 100px;
-        color: #142945;
+        color: ${colors.secondary};
         font-family: Muli;
         font-size: 12px;
         font-weight: 400;
@@ -211,17 +185,13 @@ function ToolbarColorPicker(props) {
             <p>Palettes Size</p>
           </div>
           <div className="color-options">
-            {colors.map((color) => {
+            {colors.palette.map((color) => {
               let border = "none";
               let height = "34px";
               let width = "34px";
 
-              if (
-                color === "#FFFFFF" ||
-                color === "#ffffff" ||
-                color === "white"
-              ) {
-                border = "1px solid #979797";
+              if (color === colors.white) {
+                border = `1px solid ${colors.palette_tools.border}`;
                 height = "33px";
                 width = "33px";
               }
@@ -276,7 +246,7 @@ ToolbarColorPicker.propTypes = {
 
 ToolbarColorPicker.defaultProps = {
   tooltipID: "video-tooltip",
-  selectedColor: "#4cd965",
+  selectedColor: colors.palette[7],
   setColor: () => {},
   opacity: 60,
   setOpacity: () => {},

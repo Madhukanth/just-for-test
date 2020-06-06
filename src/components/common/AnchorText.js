@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
+import { colors } from "../themes/base";
+
 const AnchorText = styled.a`
-  color: #00bfff;
+  color: ${colors.brand};
   font-family: Muli;
   font-size: 12px;
   font-weight: bold;

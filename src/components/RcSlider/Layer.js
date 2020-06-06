@@ -5,15 +5,11 @@ import styled from "styled-components";
 import Slider from "./Slider";
 import Timeline from "./Timeline";
 
-import EyeOpen from "./eye_open.png";
-import EyeClose from "./eye_close.png";
-import DeleteIcon from "./rubbish.png";
-import AudioSectionPng from "./audio-section.png";
-import VideoSectionPng from "./video-section.png";
+import { icons, colors } from "../themes/base";
 
 const MainContainer = styled.div`
   margin: 10rem;
-  color: #142945;
+  color: ${colors.secondary};
   font-size: 13px;
   font-weight: bold;
   font-family: "Muli", sans-serif;
@@ -42,11 +38,11 @@ const MainContainer = styled.div`
 const Section = styled.div`
   .timeline-container {
     padding: 10px;
-    border-left: 1px solid #dedede;
-    border-right: 1px solid #dedede;
+    border-left: 1px solid ${colors.white1};
+    border-right: 1px solid ${colors.white1};
     width: 578px;
     height: 22px;
-    background: white;
+    background: ${colors.white};
   }
 
   .layer:first-child {
@@ -54,7 +50,7 @@ const Section = styled.div`
     border-top-left-radius: 6px;
 
     .timeline-container {
-      border-top: 1px solid #dedede;
+      border-top: 1px solid ${colors.white1};
     }
   }
 
@@ -64,7 +60,7 @@ const Section = styled.div`
     border-bottom: 0;
 
     .timeline-container {
-      border-bottom: 1px solid #dedede;
+      border-bottom: 1px solid ${colors.white1};
     }
   }
 `;
@@ -75,7 +71,7 @@ const LayerContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 720px;
-  border-bottom: 1px solid rgba(187, 187, 187, 0.3);
+  border-bottom: 1px solid ${colors.tools_slider.layerBorder};
 
   .visibility-container {
     width: 117px;
@@ -86,7 +82,7 @@ const LayerContainer = styled.div`
     p {
       text-transform: capitalize;
       color: ${(props) =>
-        props.disabled ? "rgba(20,41,69,0.3)" : props.primaryColor};
+        props.disabled ? colors.s_verylight : props.primaryColor};
     }
   }
 `;
@@ -115,7 +111,9 @@ function SingleLayer(props) {
       <div className="visibility-container">
         <Button
           style={{
-            background: `url(${props.disabled ? EyeClose : EyeOpen})`,
+            background: `url(${
+              props.disabled ? icons.IC_EyeClose : icons.IC_EyeOpen
+            })`,
             backgroundSize: "17px 17px",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -135,7 +133,7 @@ function SingleLayer(props) {
         style={{
           opacity: 0.5,
           width: "29px",
-          background: `url(${DeleteIcon})`,
+          background: `url(${icons.IC_DeleteIcon})`,
           backgroundSize: "13px 13px",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -161,9 +159,9 @@ SingleLayer.propTypes = {
 SingleLayer.defaultProps = {
   disabled: false,
   title: "layer 1",
-  primaryColor: "#FF9C34",
-  secondaryColor: "#FBE7D4",
-  backgroundColor: "rgba(91,184,93, 0.15)",
+  primaryColor: colors.tools_slider.video_primary,
+  secondaryColor: colors.tools_slider.video_secondary,
+  backgroundColor: colors.tools_slider.video_background,
   regions: [1, 10, 20, 30, 50, 55, 70, 90],
   onChange: () => {},
   onDelete: () => {},
@@ -175,42 +173,42 @@ function Layer(props) {
     <MainContainer>
       <Timeline duration={props.duration} />
       <div className="section">
-        <img src={VideoSectionPng} alt="" />
+        <img src={icons.IC_VideoSectionPng} alt="" />
         <p>VIDEO SECTION</p>
       </div>
       <Section>
         <SingleLayer
           title="layer 1"
-          primaryColor="#FF9C34"
-          secondaryColor="#FBE7D4"
-          backgroundColor="rgba(255, 156, 52, 0.15)"
+          primaryColor={colors.tools_slider.video_primary}
+          secondaryColor={colors.tools_slider.video_secondary}
+          backgroundColor={colors.tools_slider.video_background}
         />
         <SingleLayer
           disabled
           title="layer 2"
-          primaryColor="#FF9C34"
-          secondaryColor="#FBE7D4"
-          backgroundColor="rgba(255, 156, 52, 0.15)"
+          primaryColor={colors.tools_slider.video_primary}
+          secondaryColor={colors.tools_slider.video_secondary}
+          backgroundColor={colors.tools_slider.video_background}
         />
       </Section>
 
       <div className="section">
-        <img src={AudioSectionPng} alt="" />
+        <img src={icons.IC_AudioSectionPng} alt="" />
         <p>AUDIO SECTION</p>
       </div>
       <Section>
         <SingleLayer
           title="layer 1"
-          primaryColor="#5BB85D"
-          secondaryColor="#DBEEDD"
-          backgroundColor="rgba(91,184,93, 0.15)"
+          primaryColor={colors.tools_slider.audio_primary}
+          secondaryColor={colors.tools_slider.audio_secondary}
+          backgroundColor={colors.tools_slider.audio_background}
         />
         <SingleLayer
           disabled
           title="layer 2"
-          primaryColor="#5BB85D"
-          secondaryColor="#DBEEDD"
-          backgroundColor="rgba(91,184,93, 0.15)"
+          primaryColor={colors.tools_slider.audio_primary}
+          secondaryColor={colors.tools_slider.audio_secondary}
+          backgroundColor={colors.tools_slider.audio_background}
         />
       </Section>
     </MainContainer>

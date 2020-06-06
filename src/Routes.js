@@ -10,6 +10,10 @@ import VideoProperty from "./components/EditorTools/VideoProperty";
 import ContrastProperty from "./components/EditorTools/ContrastProperty";
 import SpeedProperty from "./components/EditorTools/SpeedProperty";
 import TextProperty from "./components/EditorTools/TextProperty";
+import ShapeProperty from "./components/EditorTools/ShapeProperty";
+import ColorCorrectionProperty from "./components/EditorTools/ColorCorrectionProperty";
+import EffectsProperty from "./components/EditorTools/EffectsProperty";
+import RND from "./components/RND";
 
 const Routes = () => (
   <BrowserRouter>
@@ -23,6 +27,14 @@ const Routes = () => (
       <Route path="/tools/contrast" component={ContrastProperty} exact />
       <Route path="/tools/speed" component={SpeedProperty} exact />
       <Route path="/tools/text" component={TextProperty} exact />
+      <Route path="/tools/shape" component={ShapeProperty} exact />
+      <Route
+        path="/tools/ccorrection"
+        component={ColorCorrectionProperty}
+        exact
+      />
+      <Route path="/tools/effects" component={EffectsProperty} exact />
+      <Route path="/rnd" component={RND} exact />
     </Switch>
   </BrowserRouter>
 );

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { colors } from "../themes/base";
+
 import Toolbar from "./Toolbar";
 import Button from "../common/Button";
 
@@ -13,8 +15,8 @@ const StyledWrapper = styled.div`
     width: 340px;
     border-radius: 3px;
     position: relative;
-    background-color: #ffffff;
-    box-shadow: 0 2px 10px 0 rgba(44, 137, 255, 0.1);
+    background-color: ${colors.white};
+    box-shadow: 0 2px 10px 0 ${colors.shadow};
 
     .button-container {
       width: 330px;
@@ -44,7 +46,7 @@ function EditorTools(props) {
           <Button
             margin="7px"
             height="34px"
-            color="#142945"
+            color={colors.secondary}
             borderRadius="19px"
             background="rgba(20, 41, 69,0.03)"
           >
@@ -59,7 +61,7 @@ function EditorTools(props) {
             height="54px"
             fontSize="16px"
             fontWeight="600"
-            color="#8994A2"
+            color={colors.tertiary}
             background="transparent"
             padding="0"
           >

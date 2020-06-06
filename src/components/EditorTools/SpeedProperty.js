@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { colors } from "../themes/base";
+
 import EditorTools from "./EditorTools";
 import AnchorText from "../common/AnchorText";
 import SliderText from "../common//SliderText";
@@ -12,6 +14,8 @@ import ToolbarPropDivider from "../common/ToolbarPropDivider";
 
 const StyledWrapper = styled.div`
   padding: 0 10px;
+  height: 680px;
+  overflow: scroll;
 
   .header-container {
     display: flex;
@@ -25,7 +29,9 @@ const SpeedButton = styled.button`
   border-radius: 2px;
   background: transparent;
   border: ${(props) =>
-    props.selected ? "2px solid #00c1ff" : "1px solid rgba(20, 41, 69,0.1)"};
+    props.selected
+      ? `2px solid ${colors.speed_tools.border}`
+      : "1px solid rgba(20, 41, 69,0.1)"};
 
   color: #142945;
   font-family: Muli;

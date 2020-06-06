@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { colors } from "../themes/base";
+
 import EditorTools from "./EditorTools";
 import SliderText from "../common/SliderText";
 import AnchorText from "../common/AnchorText";
@@ -14,10 +16,12 @@ import ToolbarPropDivider from "../common/ToolbarPropDivider";
 
 const StyledWrapper = styled.div`
   padding: 0 10px;
+  height: 680px;
+  overflow: scroll;
 
   .light-text {
     opacity: 0.5;
-    color: #142945;
+    color: ${colors.secondary};
     font-family: Muli;
     font-size: 12px;
     letter-spacing: 0;
@@ -29,7 +33,7 @@ const StyledWrapper = styled.div`
     height: 37px;
     display: flex;
     font-size: 13px;
-    color: #142945;
+    color: ${colors.secondary};
     font-family: Muli;
     letter-spacing: 0;
     line-height: 15px;
@@ -109,7 +113,7 @@ VideoProperty.propTypes = {
 };
 
 VideoProperty.defaultProps = {
-  selectedColor: "#4cd965",
+  selectedColor: colors.palette[7],
   videoFit: "Fill Frame",
   resolution: "1280x720",
   duration: "04:33:0",

@@ -4,6 +4,8 @@ import ReactSlider from "react-slider";
 import _ from "lodash";
 import uuidv4 from "uuid/v4";
 
+import { colors } from "../themes/base";
+
 // import DeleteIcon from "./rubbish.png";
 
 // const CustomButton = styled.button`
@@ -26,7 +28,7 @@ const Button = styled.button`
   margin-right: 2px;
   margin-left: auto;
   border-radius: 3px;
-  background: white;
+  background: ${colors.white};
 
   &:focus {
     outline: 0;
@@ -62,7 +64,7 @@ const StyledTrack = styled.div`
   top: 0;
   bottom: 0;
   display: flex;
-  color: black;
+  color: ${colors.black};
   overflow: hidden;
   line-height: 20px;
   text-align: center;

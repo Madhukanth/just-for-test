@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { colors } from "../themes/base";
+
 const StyledWrapper = styled.div`
   height: 34px;
   width: 300px;
@@ -10,9 +12,9 @@ const StyledWrapper = styled.div`
   border-radius: 2px;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(20, 41, 69, 0.03);
+  background-color: ${colors.s_superlight};
 
-  color: rgba(20, 41, 69, 0.5);
+  color: ${colors.s_light};
   font-family: Muli;
   font-size: 12px;
   font-weight: 400;
@@ -22,7 +24,7 @@ const StyledWrapper = styled.div`
 
   input {
     border: 0;
-    width: 35px;
+    width: 45px;
     font-size: 12px;
     text-align: end;
     font-weight: 400;

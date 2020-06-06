@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 
+import { colors } from "../themes/base";
+
 const StyledButton = styled.button`
   box-sizing: border-box;
   line-height: 0;
@@ -50,7 +52,6 @@ Button.propTypes = {
   fontSize: PropTypes.string,
   fontFamily: PropTypes.string,
   fontWeight: PropTypes.string,
-  children: PropTypes.string,
   onClick: PropTypes.func,
   margin: PropTypes.string,
   disabled: PropTypes.bool,
@@ -60,8 +61,8 @@ Button.defaultProps = {
   width: "auto",
   height: "auto",
   fontFamily: '"Muli", sans-serif',
-  background: "#00BFFF",
-  color: "#FFFFFF",
+  background: colors.brand,
+  color: colors.white,
   boxShadow: "none",
   padding: "1rem 1.5rem .9rem 1.5rem",
   fontSize: "14px",

@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { colors } from "../themes/base";
+
 const StyledRange = styled.input`
   height: ${(props) => props.height};
   width: ${(props) => props.width};
@@ -9,8 +11,8 @@ const StyledRange = styled.input`
   -webkit-appearance: none;
   background: ${(props) => `linear-gradient(
     to right,
-    #00BFFF 0%,
-    #00BFFF ${props.percent}%,
+    ${colors.primary} 0%,
+    ${colors.primary} ${props.percent}%,
     rgba(20, 41, 69, 0.05) ${props.percent}%,
     rgba(20, 41, 69, 0.05) 100%
   )`};
@@ -26,8 +28,8 @@ const StyledRange = styled.input`
     cursor: pointer;
     height: 22px;
     width: 22px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background-color: ${colors.white};
+    box-shadow: 0 2px 4px 0 ${colors.half_black};
   }
 
   &::-moz-focus-outer {
@@ -41,8 +43,8 @@ const StyledRange = styled.input`
     cursor: pointer;
     height: 22px;
     width: 22px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background-color: ${colors.white};
+    box-shadow: 0 2px 4px 0 ${colors.half_black};
   }
 `;
 

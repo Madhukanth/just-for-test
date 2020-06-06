@@ -4,15 +4,17 @@ import Dropdown from "react-dropdown";
 import styled from "styled-components";
 import "react-dropdown/style.css";
 
+import { colors } from "../themes/base";
+
 const StyledDropDown = styled.div`
   .toolbar-dropdown {
     height: 34px;
     width: ${(props) => props.width};
     border: 0;
     border-radius: 2px;
-    background-color: rgba(20, 41, 69, 0.03);
+    background-color: ${colors.s_superlight};
 
-    color: #142945;
+    color: ${colors.secondary};
     font-family: Muli;
     font-size: ${(props) => props.fontSize};
     font-weight: ${(props) => props.fontWeight};
@@ -22,8 +24,8 @@ const StyledDropDown = styled.div`
     &-menu {
       border: 0;
       border-radius: 2px;
-      background-color: rgb(249, 249, 249);
-      color: #142945;
+      background-color: ${colors.white};
+      color: ${colors.secondary};
       font-family: Muli;
       font-size: ${(props) => props.fontSize};
       font-weight: ${(props) => props.fontWeight};
@@ -36,7 +38,7 @@ const StyledDropDown = styled.div`
       box-sizing: border-box;
       height: 7px;
       width: 7px;
-      border: 1px solid #00bfff;
+      border: 1px solid ${colors.primary};
       transform: rotate(132deg);
       border-bottom: 0px;
       border-left: 0px;

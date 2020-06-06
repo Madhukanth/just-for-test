@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { colors } from "../themes/base";
+
 import EditorTools from "./EditorTools";
 import SliderText from "../common/SliderText";
 import AnchorText from "../common/AnchorText";
@@ -12,6 +14,8 @@ import ToolbarPropDivider from "../common/ToolbarPropDivider";
 
 const StyledWrapper = styled.div`
   padding: 0 10px;
+  height: 680px;
+  overflow: scroll;
 
   .header-container {
     display: flex;
@@ -22,7 +26,7 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     height: 37px;
-    color: #142945;
+    color: ${colors.secondary};
     font-family: Muli;
     font-size: 13px;
     letter-spacing: 0;

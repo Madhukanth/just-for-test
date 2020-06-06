@@ -2,29 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { icons, colors } from "../themes/base";
+
 import ToolIcon from "../common/ToolIcon";
-import IC_Video from "./icons/ic_video.png";
-import IC_Video_Blue from "./icons/ic_video-blue.png";
-import IC_Color_Correction from "./icons/ic_color_correction.png";
-import IC_Color_Correction_Blue from "./icons/ic_color_correction-blue.png";
-import IC_Contrast from "./icons/ic_contrast.png";
-import IC_Contrast_Blue from "./icons/ic_contrast-blue.png";
-import IC_Effects from "./icons/ic_effects.png";
-import IC_Effects_Blue from "./icons/ic_effects-blue.png";
-import IC_Text from "./icons/ic_text.png";
-import IC_Text_Blue from "./icons/ic_text-blue.png";
-import IC_Draw from "./icons/ic_draw.png";
-import IC_Draw_Blue from "./icons/ic_draw-blue.png";
-import IC_Shape from "./icons/ic_shape.png";
-import IC_Shape_Blue from "./icons/ic_shape-blue.png";
-import IC_Speed from "./icons/ic_speed.png";
-import IC_Speed_Blue from "./icons/ic_speed-blue.png";
 
 const StyledToolbar = styled.div`
   height: 870px;
   width: 60px;
   opacity: 0.9;
-  background-color: #003da2;
+  background-color: ${colors.brand};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +20,7 @@ const Divider = styled.div`
   height: 1px;
   width: 60px;
   opacity: 0.15;
-  background-color: #ffffff;
+  background-color: ${colors.white};
 `;
 
 function Toolbar(props) {
@@ -44,39 +30,41 @@ function Toolbar(props) {
 
     switch (tool) {
       case "video": {
-        src = selected ? IC_Video_Blue : IC_Video;
+        src = selected ? icons.IC_Video_Blue : icons.IC_Video;
         break;
       }
       case "correction": {
-        src = selected ? IC_Color_Correction_Blue : IC_Color_Correction;
+        src = selected
+          ? icons.IC_Color_Correction_Blue
+          : icons.IC_Color_Correction;
         break;
       }
       case "contrast": {
-        src = selected ? IC_Contrast_Blue : IC_Contrast;
+        src = selected ? icons.IC_Contrast_Blue : icons.IC_Contrast;
         break;
       }
       case "effect": {
-        src = selected ? IC_Effects_Blue : IC_Effects;
+        src = selected ? icons.IC_Effects_Blue : icons.IC_Effects;
         break;
       }
       case "text": {
-        src = selected ? IC_Text_Blue : IC_Text;
+        src = selected ? icons.IC_Text_Blue : icons.IC_Text;
         break;
       }
       case "draw": {
-        src = selected ? IC_Draw_Blue : IC_Draw;
+        src = selected ? icons.IC_Draw_Blue : icons.IC_Draw;
         break;
       }
       case "shape": {
-        src = selected ? IC_Shape_Blue : IC_Shape;
+        src = selected ? icons.IC_Shape_Blue : icons.IC_Shape;
         break;
       }
       case "speed": {
-        src = selected ? IC_Speed_Blue : IC_Speed;
+        src = selected ? icons.IC_Speed_Blue : icons.IC_Speed;
         break;
       }
       default: {
-        src = selected ? IC_Video_Blue : IC_Video;
+        src = selected ? icons.IC_Video_Blue : icons.IC_Video;
         break;
       }
     }

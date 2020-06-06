@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import ReactSlider from "react-slider";
 
+import { colors } from "../themes/base";
+
 const TimeSection = styled.div`
   display: flex;
   height: 29px;
@@ -14,8 +16,8 @@ const TimeSection = styled.div`
     width: 84px;
     border-radius: 4px;
     border: 0;
-    background-color: #00bfff;
-    color: #ffffff;
+    background-color: ${colors.primary};
+    color: ${colors.white};
     font-family: Muli;
     font-size: 12px;
     font-weight: 400;
@@ -34,10 +36,10 @@ const TimeInput = styled.input`
   box-sizing: border-box;
   height: 23px;
   width: 125px;
-  border: 1px solid #e7e7e7;
+  border: 1px solid ${colors.white2};
   border-radius: 4px;
-  background-color: #ffffff;
-  color: #142945;
+  background-color: ${colors.white};
+  color: ${colors.secondary};
   font-family: Muli;
   font-size: 12px;
   font-weight: bold;
@@ -63,7 +65,7 @@ const TimeContainer = styled.div`
     p {
       height: 13px;
       width: 27px;
-      color: #142945;
+      color: ${colors.secondary};
       font-family: Muli;
       font-size: 10px;
       font-weight: bold;
@@ -92,8 +94,8 @@ const StyledSlider = styled(ReactSlider)`
 const StyledThumb = styled.div`
   height: 10px;
   width: 10px;
-  background-color: #ffffff;
-  color: #fff;
+  background-color: ${colors.white};
+  color: ${colors.white};
   border-radius: 50%;
   cursor: grab;
   top: 2px;
@@ -122,7 +124,7 @@ const StyledTrack = styled.div`
   bottom: 0;
   height: 14px;
   background: ${(props) =>
-    props.index === 1 ? "rgba(0, 191, 255,0.25)" : "transparent"};
+    props.index === 1 ? colors.tools_slider.trackBackground : "transparent"};
   border-radius: 999px;
 `;
 
