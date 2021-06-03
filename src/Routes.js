@@ -13,7 +13,12 @@ import TextProperty from "./components/EditorTools/TextProperty";
 import ShapeProperty from "./components/EditorTools/ShapeProperty";
 import ColorCorrectionProperty from "./components/EditorTools/ColorCorrectionProperty";
 import EffectsProperty from "./components/EditorTools/EffectsProperty";
-import RND from "./components/RND";
+import Demograph from "./components/Demograph";
+import Wheelzoom from "./components/Wheelzoom";
+import FlexTest from "./components/Flex";
+import PhoneCamera from "./components/phonecamera";
+import Graph from "./components/Graph";
+import Resume from "./components/Resume";
 
 const Routes = () => (
   <BrowserRouter>
@@ -34,7 +39,17 @@ const Routes = () => (
         exact
       />
       <Route path="/tools/effects" component={EffectsProperty} exact />
-      <Route path="/rnd" component={RND} exact />
+      <Route path="/wheelzoom" component={Wheelzoom} exact />
+
+      <Route path="/demo" exact component={Demograph} />
+
+      <Route path="/flex" exact component={FlexTest} />
+
+      <Route path="/phone" exact component={PhoneCamera} />
+
+      <Route path="/graph" exact component={Graph} />
+
+      <Route path="/resume" exact component={Resume} />
     </Switch>
   </BrowserRouter>
 );
